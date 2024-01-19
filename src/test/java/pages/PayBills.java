@@ -74,6 +74,15 @@ public class PayBills extends BrowserUtilities {
     @FindBy(id = "pc_conversion_amount")
     private WebElement convertedAmountLabel;
 
+    @FindBy(xpath = ".//div[@id='ui-tabs-3']/h2")
+    private WebElement foreignCurrencyPurchaseTitle;
+
+    @FindBy(xpath = ".//div[contains(@class,'alert-success')]/div[@id='alert_content']")
+    private WebElement successfulForeignCurrencyPurchaseSuccessfulText;
+
+    @FindBy(id = "purchase_cash")
+    private WebElement purchaseForeignCurrencyCashBtn;
+
     Select selectObj;
 
 
@@ -115,7 +124,7 @@ public class PayBills extends BrowserUtilities {
         }
     }
 
-    public void setPaySavedPayeeAmountInput(String  amount) {
+    public void setPaySavedPayeeAmountInput(String amount) {
         paySavedPayeeAmountInput.clear();
         paySavedPayeeAmountInput.sendKeys(amount);
     }
@@ -131,7 +140,7 @@ public class PayBills extends BrowserUtilities {
         paySavedDescriptionInput.sendKeys(description);
     }
 
-    public void clickPayPayeeBtn(){
+    public void clickPayPayeeBtn() {
         payPayeeBtn.click();
     }
 
@@ -173,6 +182,16 @@ public class PayBills extends BrowserUtilities {
     public void selectForeignCurrencyByValue(String value) {
         Select currencyDropdown = new Select(currencyDropdownElement);
         currencyDropdown.selectByValue(value.toUpperCase());
+    }
+
+    public void selectForeignCurrencyByVisibleText(String value) {
+        selectObj = new Select(currencyDropdownElement);
+        List<WebElement> optionsList = selectObj.getOptions();
+        for (WebElement e : optionsList) {
+            if (e.getText().toLowerCase().contains(value.toLowerCase())) {
+                selectObj.selectByVisibleText(e.getText());
+            }
+        }
     }
 
     public void selectForeignCurrencyByIndex(int index) {
@@ -217,6 +236,14 @@ public class PayBills extends BrowserUtilities {
         }
     }
 
+    public void selectSellCurrencyByArgument(String arg0) {
+        if(arg0.contains("USD")){
+            clickUSDAsSell();
+        } else if (arg0.contains("Selected Currency")){
+            clickSelectedCurrencyAsSell();
+        }
+    }
+
     public String getConvertedAmount() {
         return convertedAmountLabel.getText();
     }
@@ -227,5 +254,17 @@ public class PayBills extends BrowserUtilities {
 
     public String getAddNewPayeeTitle() {
         return addNewPayeeTitle.getText();
+    }
+
+    public String getPurchaseForeignCurrencyTitle() {
+        return foreignCurrencyPurchaseTitle.getText();
+    }
+
+    public String getSuccessfulForeignCurrencyPurchaseSuccessfulText() {
+        return successfulForeignCurrencyPurchaseSuccessfulText.getText();
+    }
+
+    public void clickPurchaseForeignCurrencyCashBtn() {
+        purchaseForeignCurrencyCashBtn.click();
     }
 }

@@ -35,9 +35,5 @@ public class HomePage_stepDefinitions {
         homePage.clickUserLogoutBtn();
     }
 
-    @Given("User is on Online Banking page")
-    public void userIsOnOnlineBankingPage() {
-        homePage.clickOnlineBankingBtn();
-    }
 
 }

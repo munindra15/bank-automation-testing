@@ -8,11 +8,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/Features",
         glue = "/pages",
-//        tags = "@ZEROBANK_TRANSFER_FUNDS",
-        tags = "@ZEROBANK_PAY_BILLS",
+        tags = "@SmokeTest",
         plugin = {"pretty",
-                "junit:src/test/Reports/cucumber.junit"},
+                "junit:src/test/Reports/SmokeTest/SmokeTest.junit",
+                "json:src/test/Reports/SmokeTest/SmokeTest.json",
+                "html:src/test/Reports/SmokeTest/SmokeTest.html"},
         monochrome = true,
+        dryRun = false,
         publish = false)
-public class Runner {
+public class SmokeTesting_runner {
 }

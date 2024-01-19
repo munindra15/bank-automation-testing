@@ -45,4 +45,10 @@ public class Hooks extends BrowserUtilities {
             screenShot(outputPath, scenario.getName()+";"+formatter.format(date));
         }
     }
+
+    @After(order = 0)
+    public void terminate() {
+        driver.quit();
+        resetDriver();
+    }
 }

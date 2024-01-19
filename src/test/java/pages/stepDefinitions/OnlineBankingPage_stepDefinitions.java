@@ -9,6 +9,11 @@ public class OnlineBankingPage_stepDefinitions {
 
     OnlineBankingPage onlineBankingPage = new OnlineBankingPage();
 
+
+    @And("User is on Online Banking page")
+    public void userIsOnOnlineBankingPage() {
+    }
+
     @And("User clicks on Transfer Funds page")
     public void userClicksOnTransferFundsPage() {
         onlineBankingPage.clickTransferFundsBtn();
@@ -18,4 +23,5 @@ public class OnlineBankingPage_stepDefinitions {
     public void userClicksOnPayBillsLink() {
         onlineBankingPage.clickPayBillsBtn();
     }
+
 }

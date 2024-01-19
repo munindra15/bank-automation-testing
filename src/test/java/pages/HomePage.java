@@ -23,9 +23,6 @@ public class HomePage extends BrowserUtilities {
     @FindBy(id = "online-banking")
     private WebElement moreServicesBtn;
 
-    @FindBy(id = "onlineBankingMenu")
-    private WebElement onlineBanking;
-
     @FindBy(xpath = ".//div//li[@class='active']//*[contains(text(),'Home')]")
     private WebElement homePageTitle;
 
@@ -55,11 +52,6 @@ public class HomePage extends BrowserUtilities {
     public void clickMoreServicesBtn() {
         moreServicesBtn.click();
     }
-
-    public void clickOnlineBankingBtn(){
-        onlineBanking.click();
-    }
-
 
     public String getHomePageTitleText() {
         return homePageTitle.getText();

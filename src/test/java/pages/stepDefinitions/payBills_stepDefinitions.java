@@ -95,4 +95,44 @@ public class payBills_stepDefinitions {
     public void userClicksOnTheAddNewPayeeLink() {
         payBills.clickAddNewPayeeBtn();
     }
+
+    @Then("User clicks on the Purchase Foreign Currency link")
+    public void userClicksOnThePurchaseForeignCurrencyLink() {
+        payBills.clickPurchaseForeignCurrencyBtn();
+    }
+
+    @And("User is on the Purchase Foreign Currency page")
+    public void userIsOnThePurchaseForeignCurrencyPage() {
+        Assert.assertEquals(ConfigurationReader.getProperty("pay_bills_purchase_foreign_currency_title"), payBills.getPurchaseForeignCurrencyTitle());
+    }
+
+    @Then("User selects {string} from the list")
+    public void userSelectsFromTheList(String arg0) {
+        payBills.selectForeignCurrencyByVisibleText(arg0);
+    }
+
+    @And("User enters Amount in the Foreign Currency amount input")
+    public void userEntersAmountInTheForeignCurrencyAmountInput() {
+        payBills.setForeignCurrencyAmountInput("200");
+    }
+
+    @And("User selects {string} by clicking radio button")
+    public void userSelectsByClickingRadioButton(String arg0) {
+        payBills.selectSellCurrencyByArgument(arg0);
+    }
+
+    @Then("User clicks on the Calculate Costs")
+    public void userClicksOnTheCalculateCosts() {
+        payBills.clickCalculateCosts();
+    }
+
+    @And("User clicks on the Purchase button")
+    public void userClicksOnThePurchaseButton() {
+        payBills.clickPurchaseForeignCurrencyCashBtn();
+    }
+
+    @And("Successfully Foreign Currency Cash Purchase message is displayed")
+    public void successfullyForeignCurrencyCashPurchaseMessageIsDisplayed() {
+        Assert.assertEquals(ConfigurationReader.getProperty("pay_bills_purchase_foreign_currency_successful_text"), payBills.getSuccessfulForeignCurrencyPurchaseSuccessfulText());
+    }
 }
