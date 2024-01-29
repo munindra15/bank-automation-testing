@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="5.806" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="As a User, I want to make sure that all major functionalities are working fine" name="Test the user is able to login and test the primary navigation feature of the application." time="5.656">
+<testsuite name="Cucumber" time="6.453" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="As a User, I want to make sure that all major functionalities are working fine" name="Test the user is able to login and test the primary navigation feature of the application." time="6.337">
 <system-out><![CDATA[
 Given User launches the Zero Bank Home page.................................passed
 And User clicks the SignIn button on the Navbar.............................passed
